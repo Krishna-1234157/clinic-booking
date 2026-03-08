@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Doctor Booking</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+{% if messages %}
+  {% for message in messages %}
+    <script>
+      alert("{{ message }}");
+    </script>
+  {% endfor %}
+{% endif %}
+<header id="header" class="header sticky-top">
+
+    <div class="topbar d-flex align-items-center">
+      <div class="container d-flex justify-content-center justify-content-md-between">
+        <div class="contact-info d-flex align-items-center">
+          <i class="bi bi-envelope d-flex align-items-center"><a href="#">mediclinic@gmail.com</a></i>
+          <i class="bi bi-phone d-flex align-items-center ms-4"><span>9955895548</span></i>
+        </div>
+        <div class="social-links d-none d-md-flex align-items-center">
+          <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+    </div><!-- End Top Bar -->
+
+    <div class="branding d-flex align-items-center">
+
+      <div class="container position-relative d-flex align-items-center justify-content-between">
+        <a href="index.html" class="logo d-flex align-items-center me-auto">
+          <!-- Uncomment the line below if you also wish to use an image logo -->
+          <!-- <img src="{% static 'assets/img/logo.png' %}" alt=""> -->
+          <h1 class="sitename">MediClinic</h1>
+        </a>
+        <a class="cta-btn d-none d-sm-block" href="admin_page">Back</a>
+
+      </div>
+
+    </div>
+
+  </header>
+
+  <!-- Appointment Section -->
+    <section id="appointment" class="appointment section">
+
+      <!-- Section Title -->
+      <div class="container section-title" >
+        <h2>Add doctor</h2>
+      </div><!-- End Section Title -->
+
+  <div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+
+      <form action="doctor" method="post">
+        {% csrf_token %}
+
+        <div class="form-group mt-3">
+          <label class="text-center d-block">Doctor name</label>
+          <input type="text" name="name" class="form-control" required>
+        </div>
+
+        <div class="form-group mt-3">
+          <label class="text-center d-block">Specialization</label>
+          <input type="text" name="specialization" class="form-control" required>
+        </div>
+
+        <div class="form-group mt-3">
+          <label class="text-center d-block">Available days</label>
+          <input type="text" name="days" class="form-control" required>
+        </div>
+
+        <div class="form-group mt-3">
+          <label class="text-center d-block">Start Time</label>
+          <input type="time" name="start_time" class="form-control" required>
+        </div>
+
+          <div class="form-group mt-3">
+          <label class="text-center d-block">End Time</label>
+          <input type="time" name="end_time" class="form-control" required>
+        </div><br>
+
+        <div class="text-center mt-4">
+          <button type="submit" class="btn btn-primary">Add Doctor</button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>
+    </section><!-- /Appointment Section -->
+
+</body>
+</html>
