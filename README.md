@@ -27,3 +27,14 @@ Admins can manage doctors, view all appointments, and monitor the clinic schedul
 ```bash
 git clone https://github.com/yourusername/clinic-booking-system.git
 cd clinic-booking-system
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+python manage.py makemigrations
+python manage.py migrate
+python manage.py createsuperuser
+python manage.py runserver
+```
+Open your browser at http://127.0.0.1:8000/
+
+Log in as a user or admin to access different features.
